@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import MyComponent from './MyComponent';
+import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    // React.createElement(App),
+    <App/>,
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    // React.createElement(MyComponent,{val:'HOGE'}),
+    // <MyComponent></MyComponent>,
+    // <MyComponent val1={'hoge'} val2={'fuga'}> children????</MyComponent>,
+
+    // React.createElement('h1',null,'Hello World!!'),
+    document.getElementById('root')
+);
+const data = {
+    name: '山田',
+    age: 19,
+    time: '',
+    val1: '',
+}
+setInterval(() => {
+    data.age++;
+    data.time = (new Date()).toLocaleString();
+    ReactDOM.render(
+        // React.createElement(MyComponent,{val:'HOGE'}),
+        // <MyComponent></MyComponent>,
+        // <MyComponent val1={'--'} val2={''}> children????</MyComponent>,
+        <MyComponent {...data}/>,
+        // React.createElement('h1',null,'Hello World!!'),
+        document.getElementById('root_sub')
+    )
+    ;
+}, 1000)
