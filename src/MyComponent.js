@@ -11,7 +11,7 @@ export default class MyComponent extends React.Component {
     }
 
     doChange(e) {
-        ""
+        "--"
     }
 
     render() {
